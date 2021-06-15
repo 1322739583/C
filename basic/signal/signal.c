@@ -8,6 +8,9 @@
 #include "sys/wait.h"
 
 
+
+
+
 int test_kill();
 void test_signal();
 void test_signal2();
@@ -23,7 +26,7 @@ int main(){
  * 测试SIGUSR1 SIGUSR2信号
  * 输入：
  * ./a.out
- * 输出：[1] 7216 作业控制shell打印作业编号和进程id
+ * 输出：[1] 7216 //作业控制shell打印作业编号和进程id
  * 输入：
  * kill -USR1 [pid]
  * 输出：recieved SIGUSER1
@@ -31,12 +34,20 @@ int main(){
  * kill -USR2 [pid]
  * 输出：recieved SIGUSER2
  * 输入：
- * kill [pid]
+ * kill [pid]  //相对于发送SIGTERM
  * 输出：
- * 无，程序结束
+ * [1]+ Terminated ./a.out
+ * 无字符串输出，程序结束
  */
 void test_signal() {
     //signal函数的作用是向内核注册信号。
+    // void (*signal(int signo,void (*func)(int)))(int);
+    /*
+     * 这个函数原型看起来非常复杂，
+     * 其实就是函数指针类型嵌套一个函数指针类型void(*)(int)是外面的一层函数指针类型
+     * signal(int signo,void (*func)(int))则是里面的一层
+     * 之所以这样定义是因为signal函数如果注册成功的话，返回处理函数的函数指针（signal函数的第二个参数），因为要返回函数指针。所以
+     */
     if (signal(SIGUSR1,sig_usr)==SIG_ERR)//signal的第二个参数需要传的是void类型（函数指针），所以可以传入函数名（函数指针）
       fprintf(stderr,"can't catch SIGUSR1");
     if (signal(SIGUSR2,sig_usr)==SIG_ERR)
@@ -55,7 +66,9 @@ void test_signal() {
  */
 void test_signal2() {
     //signal函数的作用是向内核注册信号。
-    if (signal(SIGTSTP,sig_usr)==SIG_ERR)//signal的第二个参数需要传的是void类型（函数指针），所以可以传入函数名（函数指针）
+    //signal的第二个参数需要传的是void类型（函数指针），所以可以传入函数名（函数指针），
+    // 也可以传SIG_IGN或者SIG_DFL表示使用默认的处理方式
+    if (signal(SIGTSTP,sig_usr)==SIG_ERR)
         fprintf(stderr,"can't catch SIGTSTP");
     if (signal(SIGINT,sig_usr)==SIG_ERR)
         fprintf(stderr,"can't catch SIGINTI");
@@ -95,6 +108,8 @@ static void sig_usr(int signo){
 
 
 int test_kill() {
+
+
     pid_t pid;
     int state;
     if(!(pid=fork())){//表示成功fork成功返回0

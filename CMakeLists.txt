@@ -8,3 +8,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(time basic/time/time.c)
 add_executable(signal basic/signal/signal.c)
+add_executable(typedef basic/def/typedef.c)
