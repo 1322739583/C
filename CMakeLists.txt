@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(time basic/time/time.c)
 add_executable(signal basic/signal/signal.c)
 add_executable(typedef basic/def/typedef.c)
- add_executable(define_1 basic/def/define_1.c)
+add_executable(define_1 basic/def/define_1.c)
  
  
 add_executable(define_placeholder basic/def/define_placeholder.c)
@@ -42,3 +42,8 @@ add_executable(linked_list DataStructure/list/linked_list/linked_list.c)
 add_executable(test_linked_list DataStructure/list/linked_list/test_linked_list.c)
 
 add_executable(testlist DataStructure/list/linked_list/book_example/testlist.c)
+
+add_executable(struct basic/struct/struct.c)
+add_executable(file2 basic/test/file2.c  basic/test/file1.c)
+ #add_executable(file1 basic/test/file1.c)
+add_executable(stack_invoke basic/memery/stack_invoke.c)

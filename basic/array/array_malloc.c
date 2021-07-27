@@ -17,6 +17,7 @@ int main() {
 
     for (int i = 0; i < MAX_SIZE; ++i) {
         printf("ptr[%d]=%d\n",i,ptr[i]);
+
     }
 
 
