@@ -2,7 +2,11 @@
 
 #执行的时候需要使用下面的命令，要用64位的so，书上使用的是32位的，在执行的二进制的时候会报正在访问一个已经损坏的库
 #但这也不是好的方法，因为as命令还是只能是32位的，执行二进制的时候直接core dump
-#ld -dynamic-linker /lib/ld-linux-x86-64.so.2  -o movtest3  -lc  movtest3.o 
+#在编译的时候加上-gstabs是可以执行调试的，如果不加，调试的内容很快就出问题
+# as -gstabs -o movtest3.o  movtest3.s  
+#ld -dynamic-linker /lib/ld-linux-x86-64.so.2  -o movtest3  -lc  movtest3.o
+# gdb -q movtest3 
+
 
 #需要添加这行，在64位系统和32位系统的as命令对于某些汇编指令的处理支持是不一样的。
 #如果不添加，在执行as命令的时候就会报错，如invalid instruction suffix for `push'
