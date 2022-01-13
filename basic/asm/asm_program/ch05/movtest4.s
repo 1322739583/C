@@ -12,3 +12,7 @@ _start:
     movl values(,%edi,4),%ebx
     movl $1,%eax
     int $0x80
+
+    
+
+

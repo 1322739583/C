@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.17)
 project(C)
 
 set(CMAKE_CXX_STANDARD 14)
+#set(CMAKE_C_FLAGS   "-m32")
 
 
 
@@ -47,3 +48,15 @@ add_executable(struct basic/struct/struct.c)
 add_executable(file2 basic/test/file2.c  basic/test/file1.c)
  #add_executable(file1 basic/test/file1.c)
 add_executable(stack_invoke basic/memery/stack_invoke.c)
+add_executable(number_convert basic/math/number_convert.c)
+add_executable(move_byte ComputerSystems/ch02/se2_1/move_byte.c)
+add_executable(sprintf basic/io/sprintf.c)
+add_executable(float ComputerSystems/ch02/se2_1/float.c)
+add_executable(malloc2 basic/memery/malloc2.c)
+add_executable(malloc basic/memery/malloc.c)
+add_executable(dynamic_array DataStructure/list/dynamic_array/dynamic_array.c)
+add_executable(arr basic/test/arr.c)
+add_executable(test_dynamic_array DataStructure/list/dynamic_array/test_dynamic_array.c)
+add_executable(link_list DataStructure/list/dynamic_array/link_list.c)
+
+add_executable(seq_stack DataStructure/list/seq_stack/seq_stack.c)

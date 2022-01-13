@@ -1,3 +1,4 @@
+#https://stackoverflow.com/questions/3577922/how-to-link-a-gas-assembly-program-that-uses-the-c-standard-library-with-ld-with
 #@TODO 先放着吧，明白代码的意思就行，后面再找运行的办法
 
 #执行的时候需要使用下面的命令，要用64位的so，书上使用的是32位的，在执行的二进制的时候会报正在访问一个已经损坏的库
@@ -7,10 +8,9 @@
 #ld -dynamic-linker /lib/ld-linux-x86-64.so.2  -o movtest3  -lc  movtest3.o
 # gdb -q movtest3 
 
-
 #需要添加这行，在64位系统和32位系统的as命令对于某些汇编指令的处理支持是不一样的。
 #如果不添加，在执行as命令的时候就会报错，如invalid instruction suffix for `push'
-.code32
+#.code32
 .section .data
 output:
 # 后面将执行一段非常神奇的操作，通过调用C语言的printf函数来输出。

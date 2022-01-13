@@ -10,8 +10,8 @@
 
 typedef int element_type;
 typedef struct node *NodePtr;
-typedef NodePtr Node;
-typedef NodePtr Current;
+typedef NodePtr Node;//node*类型的指针
+typedef NodePtr Current;//
 
 
 
@@ -26,7 +26,7 @@ int is_empty(Node header);
 void printList(Node header);
 
 
-void insert(element_type x,Node list);
+void insert(element_type x,Node list,Node position);
 void delete(element_type x,Node list);
 Node find(element_type x,Node list);
 

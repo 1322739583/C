@@ -66,9 +66,19 @@ int main(int argc, char const *argv[])
     int *p0 = arr + 0;
     int *p1 = arr + 1;
     int *p2 = arr + 2;
-    printf("%d\n", p2-p0);
-    printf("%d\n", p2-p1);
-    printf("%d\n", p0-p1);
+    printf("%d\n", p2 - p0);
+    printf("%d\n", p2 - p1);
+    printf("%d\n", p0 - p1);
+
+    printf("............compare point..............\n");
+    //也可以用来确定数组元素顺序1表示true，0表示false
+    int arr2[] = {28, 41, 7};
+    int *pa0 = arr2 + 0;
+    int *pa1 = arr2 + 1;
+    int *pa2 = arr2 + 2;
+    printf("%d\n", pa2 > pa0);
+    printf("%d\n", pa2 < pa1);
+    printf("%d\n", pa0 > pa1);
 
     return 0;
 }
