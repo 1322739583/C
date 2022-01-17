@@ -11,7 +11,7 @@ struct SStack {
     int mSize;
 };
 
-void test01();
+
 
 typedef void *SeqStack;
 
@@ -122,7 +122,6 @@ void test01() {
         p = topSeqStack(stack);
         printf("name=%s,age=%d\n", p->name, p->age);
     }
-
 
 }
 
