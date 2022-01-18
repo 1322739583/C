@@ -71,3 +71,7 @@ add_executable(const_param UUCP/func/const_param.c)
 add_executable(return_point UUCP/func/return_point.c)
 
 add_executable(func_point_return UUCP/func/func_point_return.c)
+add_executable(func_point_array UUCP/func/func_point_array.c)
+add_executable(two_dimension_array UUCP/array/two_dimension_array.c)
+add_executable(ctools softwares/ctools/ctools.c)
+add_executable(get_window softwares/ctools/get_window.c)

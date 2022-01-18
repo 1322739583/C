@@ -142,6 +142,18 @@ void destoryLinkList(LinkList list){
     list=NULL;
 }
 
+void *findByValueLinkList(LinkList list,void *data,void* (*findString)(void *data)){
+    if (list==NULL){
+        return NULL;
+    }
+
+    if (data==NULL){
+        return NULL;
+    }
+
+    return findString;
+}
+
 
 struct Person {
     char name[20];
